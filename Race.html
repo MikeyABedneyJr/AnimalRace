@@ -1,0 +1,47 @@
+<script>
+
+  function Animal(name, speed, focus)  {
+    this.name = name;
+    this.speed = speed;
+    this.focus = focus;
+    this.position = 0;
+
+    this.isFocused = function( ) {
+      return Math.floor(Math.random( ) * 10) < this.focus;
+    }
+    this.advance = function( ) {
+        if (this.isFocused( ) ) {
+          this.position += this.speed;
+        }
+    }
+    this.progressReport = function( ) {
+        return this.name + " is at: " + this.position;
+    }
+}
+    var rabbit = new Animal("Buster the bunny", 8, 4);
+    var turtle = new Animal("Tommy the turtle", 3, 8);
+    var dinosaur = new Animal("Rapsy the raptor", 20, 2);
+    var meters = 50;    
+
+    while (rabbit.position < meters && turtle.position < meters)  {
+      alert("Buster is at: " + rabbit.progressReport( ) + ", Tommy is at: " + turtle.progressReport( ) + "and Rapsy is at: " + dinosaur.progressReport( ))
+      var escape = confirm("Would you like to continue the race?")
+        if (escape) {
+          rabbit.advance();
+          turtle.advance( );
+          dinosaur.advance( );
+        }
+        else {
+          var done = true;
+          alert("I don't blame you! Take care.")
+          break;
+        }
+      
+    }
+
+    if (!done) {
+      alert("What a race! We've reached 50 & it's time to go home. Till next time!")
+    } 
+
+</script>
+</html>
